@@ -21,9 +21,9 @@ public:
 	void set(istream&) {
 		double x, y;
 		cin >> x;
-		real(number) = x;
+		number.real() = x;
 		cin >> y;
-		imag(number) = y;
+		number.imag() = y;
 	}
 
 	void add(std::complex< double >x, std::complex< double >y) {
