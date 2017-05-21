@@ -15,19 +15,6 @@ public:
 	Complex(const Complex&c) {
 		this->number = c.number;
 	}
-	
-	void print(ostream&) {
-
-		cout << "\nComplex number: " << real(number)<<" + "<<imag(number)<<"i";
-	}
-	void set(istream&) {
-		double x, y;
-		cin >> x;
-		cin >> y;
-		complex< double >z(x, y);
-		number = z;
-	}
-
 	void add(complex< double >x, complex< double >y) {
 		number = x + y;
 		cout << "\nProceeding with summ...";
@@ -71,9 +58,6 @@ public:
 				div(x, new_num);
 			}
 		}
-	
-	friend ostream & operator <<(ostream&, const Complex& );
-	friend istream& operator >> (istream&, Complex&);
 
 	Complex operator +(const Complex& c) {
 		Complex buf(*this);
@@ -122,13 +106,3 @@ public:
 	}
 	
 };
-
-ostream & operator <<(ostream& out,  Complex& d) {
-	d.print(out);
-	return out;
-}
-
-istream & operator >>(istream& in,  Complex& d) {
-	d.set(in);
-	return in;
-}
