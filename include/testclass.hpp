@@ -7,6 +7,9 @@ public:
 	Complex() {
 		number = 0;
 	}
+	Complex(std::complex< double >number) {
+		this->number = number;
+	}
 	Complex(const Complex&c) {
 		this->number = c.number;
 	}
