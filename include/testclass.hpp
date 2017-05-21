@@ -2,14 +2,14 @@
 #include<complex>
 #include <cctype>
 using namespace std;
-template<typename T>
+
 class Complex {
-	std::complex< double >number;
+	complex< double >number;
 public:
 	Complex() {
 		number = 0;
 	}
-	Complex(std::complex< double >number) {
+	Complex(complex< double >number) {
 		this->number = number;
 	}
 	Complex(const Complex&c) {
@@ -28,25 +28,25 @@ public:
 		number.imag() = y;
 	}
 
-	void add(std::complex< double >x, std::complex< double >y) {
+	void add(complex< double >x, complex< double >y) {
 		number = x + y;
 		cout << "\nProceeding with summ...";
 		cout << "\n" << conj(x) << " + " << conj(y) << " = " << conj(number)<<endl;
 	}
-	void sub(std::complex< double >x, std::complex< double >y) {
+	void sub(complex< double >x, complex< double >y) {
 		number = x-y;
 		cout << "\nProceeding with substraction...";
 		cout << "\n" << conj(x) << " - " << conj(y) << " = " << conj(number)<<endl;
 	}
-	template <typename T>
-	void mult(std::complex< double >x,T y) {
+	
+	void mult(std::complex< double >x,int y) {
 		std::complex< double >buf(double(y), 0.0);
 		number = x * buf;
 		cout << "\nProceeding with multiplication...";
 		cout << "\n" << conj(x) << " * " << y << " = " << conj(number) << endl;
 	}
-	template<typename T>
-	void div(std::complex< double >x, T y) {
+	
+	void div(std::complex< double >x, int y) {
 		try {
 			if (y != 0) {
 				std::complex< double >buf(double(y), 0.0);
@@ -72,8 +72,8 @@ public:
 			}
 		}
 	
-	friend ostream & operator <<(ostream&, const Complex<T>& );
-	friend istream& operator >> (istream&, Complex<T>&);
+	friend ostream & operator <<(ostream&, const Complex& );
+	friend istream& operator >> (istream&, Complex&);
 
 	Complex operator +(const Complex& c) {
 		Complex buf(*this);
@@ -122,13 +122,13 @@ public:
 	}
 	
 };
-template<typename T>
-ostream & operator <<(ostream& out, const Complex<T>& d) {
+
+ostream & operator <<(ostream& out, const Complex& d) {
 	d.print(out);
 	return out;
 }
-template<typename T>
-istream & operator >>(istream& in, const Complex<T>& d) {
+
+istream & operator >>(istream& in, const Complex& d) {
 	d.set(in);
 	return in;
 }
