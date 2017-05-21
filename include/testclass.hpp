@@ -4,6 +4,7 @@
 using namespace std;
 
 class Complex {
+	protected:
 	complex< double >number;
 public:
 	Complex() {
