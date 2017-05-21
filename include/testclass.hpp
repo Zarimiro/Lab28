@@ -23,9 +23,9 @@ public:
 	void set(istream&) {
 		double x, y;
 		cin >> x;
-		number.real() = x;
 		cin >> y;
-		number.imag() = y;
+		complex< double >z(x, y);
+		number = z;
 	}
 
 	void add(complex< double >x, complex< double >y) {
@@ -123,12 +123,12 @@ public:
 	
 };
 
-ostream & operator <<(ostream& out, const Complex& d) {
+ostream & operator <<(ostream& out,  Complex& d) {
 	d.print(out);
 	return out;
 }
 
-istream & operator >>(istream& in, const Complex& d) {
+istream & operator >>(istream& in,  Complex& d) {
 	d.set(in);
 	return in;
 }
