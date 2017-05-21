@@ -1,4 +1,6 @@
 #include<iostream>
+#include<complex>
+#include <cctype>
 using namespace std;
 template<typename T>
 class Complex {
