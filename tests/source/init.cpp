@@ -17,7 +17,7 @@ complex< double >x(1.0, 2.0);
 SCENARIO("copy constructor") {
 complex< double >x(1.0, 2.0);
 	Complex c(x);
-  Complex d(c)
+  Complex d(c);
 	REQUIRE(d.number.real() == 1.0);
 	REQUIRE(d.number.imag() == 2.0);
 }
