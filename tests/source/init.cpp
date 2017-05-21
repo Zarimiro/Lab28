@@ -3,22 +3,23 @@
 
 SCENARIO("Default constructor") {
 	Complex c;
-	REQUIRE(c.number==0);
+	REQUIRE(c.number.real()==0.0);
+	REQUIRE(c.number.imag()==0.0);
 }
 
 SCENARIO("constructor with params") {
 complex< double >x(1.0, 2.0);
 	Complex c(x);
-	REQUIRE(c.number.real() == 1);
-	REQUIRE(c.number.imag() == 2);
+	REQUIRE(c.number.real() == 1.0);
+	REQUIRE(c.number.imag() == 2.0);
 }
 
 SCENARIO("copy constructor") {
 complex< double >x(1.0, 2.0);
 	Complex c(x);
   Complex d(c)
-	REQUIRE(d.number.real() == 1);
-	REQUIRE(d.number.imag() == 2);
+	REQUIRE(d.number.real() == 1.0);
+	REQUIRE(d.number.imag() == 2.0);
 }
 
 SCENARIO("operator*") {
